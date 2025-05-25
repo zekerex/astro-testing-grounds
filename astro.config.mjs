@@ -2,5 +2,5 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-    site: 'https://astro-testing-grounds.github.io',
+    site: 'https://zekerex.github.io/astro-testing-grounds/',
   })
