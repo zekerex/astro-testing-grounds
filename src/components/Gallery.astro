@@ -1,0 +1,31 @@
+---
+const images = [
+  "/images/art1.png",
+  "/images/art2.webp",
+  "/images/art3.webp",
+  "https://media0.giphy.com/media/105BhWkqBZhwT6/giphy.gif?cid=6c09b952wta07mde7le5n2xxi1guev6bs7lojd5m166bc3x3&ep=v1_gifs_search&rid=giphy.gif&ct=g",
+  "https://i.pinimg.com/originals/9e/9b/d0/9e9bd017e4b6f488b3125fadf5282744.gif",
+  "https://files.cults3d.com/uploaders/17461727/illustration-file/bb3428d4-e38d-41a8-b08e-40303d233972/Shadow-Lugia_.gif"
+];
+---
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .gallery img {
+    width: 100%;
+    height: 200px;
+    border-radius: .5em;
+    object-fit: cover;
+    border: .1em solid #000;
+  }
+</style>
+
+<div class="gallery">
+  {images.map((src) => (
+    <img src={src} alt="digital art piece" />
+  ))}
+</div>

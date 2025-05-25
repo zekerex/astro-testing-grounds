@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "My Astro Site Cool";
+
+const id = {
+    firstName: "Radiation",
+    country: "Japan",
+    occupation: "Computer Science Major and Artist",
+    hobbies: ["art", "watching nick cage movies", "learning languages (Italian, Chinese)"]
+}
+
+const skills = ["HTML", "CSS", "SCSS", "Astro", "Godot", "Javascript"]
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+//CSS variables
+const skillColour = "blue"
+const fontWeight = "bold"
+const textCase ="uppercase"
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <style define:vars={{skillColour, fontWeight, textCase}}>
+        h1 {
+          color: blue;
+          font-size: 4rem;
+        }
+
+        .skill {
+            color: var(--skillColour);
+            font-weight: var(--fontWeight);
+            text-transform: var(--textCase);
+        }
+      </style>
+ </head>
+
+<body>
+  <BaseLayout pageTitle={pageTitle}>
+    <h1>{pageTitle}</h1>
+  
+    <p>Hey guys. I have no idea what I am doing. however. I am trying.</p>
+
+    <p>Here are a few facts about me:</p>
+    <ul>
+        <li>my name is {id.firstName}.</li>
+        <li>I live in {id.country} and I am a {id.occupation}</li>
+        {id.hobbies.length >= 2 &&
+            <li>Two of my hobbies are: {id.hobbies[0]} and {id.hobbies[1]}</li>
+          }
+    </ul>
+
+    <p>My skills are:</p>
+    <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+
+    {happy && <p>I am happy to be learning Astro!</p>}
+
+    {finished && <p>I finished this tutorial!</p>}
+
+    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+
+    <a href="/">Back</a>
+    </BaseLayout>
+  </body>
