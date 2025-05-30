@@ -6,6 +6,9 @@ const pageTitle = "My Astro Learning Blog";
 ---
 <BaseLayout pageTitle={pageTitle}>
     <h2>{pageTitle}</h2>
+
+    <div class="mb-2"><a class="font-bold" href="./tags/">GO TO TAG INDEX</a></div>
+    
   <ul>
     {allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} pubDate={post.frontmatter.pubDate}/>)}
   </ul>
